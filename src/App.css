@@ -1117,11 +1117,13 @@
 }
 
 .why-choose-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #DC2626;
   margin-bottom: 1rem;
   font-weight: 700;
   transition: all 0.3s ease;
+  line-height: 1.3;
+  word-break: keep-all;
 }
 
 .why-choose-card:hover h3 {
@@ -2448,7 +2450,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .why-choose-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
   }
 

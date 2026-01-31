@@ -422,7 +422,7 @@ function Home() {
           <div className={`why-choose-grid ${isVisible['why-choose-us'] ? 'fade-in-up' : ''}`}>
             <div className="why-choose-card">
               <div className="why-choose-icon">⭐</div>
-              <h3>98% Customer Recommendation</h3>
+              <h3>98% Customer<br />Recommendation</h3>
               <p>Highly rated by our satisfied customers for exceptional service and quality products.</p>
             </div>
             <div className="why-choose-card">
