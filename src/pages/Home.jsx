@@ -242,7 +242,7 @@ function Home() {
                 'LLOYD', 'WHIRLPOOL', 'BPL', 'KELVINATOR', 'HAVELLS',
                 'VOLTAS', 'HITACHI', 'GODREJ', 'JBL/HARMAN KARDON', 'EUREKA FORBES'
               ];
-              const columns = 4;
+              const columns = 5;
               const brandsPerColumn = Math.ceil(brands.length / columns);
               
               // Distribute brands across columns
@@ -301,7 +301,7 @@ function Home() {
                   </div>
                   <div className="metric-item">
                     <span className="metric-check">✓</span>
-                    <span className="metric-text">279+ Happy Customers</span>
+                    <span className="metric-text">50,000+ Products Delivered</span>
                   </div>
                 </div>
                 <button className="feature-cta-button" onClick={() => scrollToSection('contact')}>
@@ -454,21 +454,27 @@ function Home() {
             <div className={`contact-card ${isVisible['contact'] ? 'slide-in-left' : ''}`}>
               <div className="contact-items-grid">
                 <div className="contact-item">
-                  <div className="contact-icon">📞</div>
+                  <div className="contact-icon">
+                    <img src="/images/telephone.png" alt="Phone" style={{ width: '32px', height: '32px' }} />
+                  </div>
                   <div className="contact-details">
                     <h4>Phone</h4>
                     <a href="tel:+919988880595">099888 80595</a>
                   </div>
                 </div>
                 <div className="contact-item">
-                  <div className="contact-icon">✉️</div>
+                  <div className="contact-icon">
+                    <img src="/images/gmail.png" alt="Email" style={{ width: '32px', height: '32px' }} />
+                  </div>
                   <div className="contact-details">
                     <h4>Email</h4>
                     <a href="mailto:singhsonsretail@gmail.com">singhsonsretail@gmail.com</a>
                   </div>
                 </div>
                 <div className="contact-item">
-                  <div className="contact-icon">📍</div>
+                  <div className="contact-icon">
+                    <img src="/images/map.png" alt="Address" style={{ width: '32px', height: '32px' }} />
+                  </div>
                   <div className="contact-details">
                     <h4>Address</h4>
                     <p>SCO-104, Phase 7, Sector 61<br />Sahibzada Ajit Singh Nagar, Punjab 160062<br />Near Axis Bank</p>
@@ -479,7 +485,9 @@ function Home() {
                   </div>
                 </div>
                 <div className="contact-item">
-                  <div className="contact-icon">🕐</div>
+                  <div className="contact-icon">
+                    <img src="/images/clock.png" alt="Store Hours" style={{ width: '32px', height: '32px' }} />
+                  </div>
                   <div className="contact-details">
                     <h4>Store Hours</h4>
                     <p>Monday - Saturday: 10:00 AM - 8:00 PM<br />Sunday: 11:00 AM - 7:00 PM</p>
