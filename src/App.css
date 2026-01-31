@@ -325,11 +325,13 @@
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .feature-badge:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .feature-icon {
@@ -359,12 +361,14 @@
   padding: 1rem 1.5rem;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .stat-item:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
 .stat-number {
@@ -645,6 +649,7 @@
   overflow: hidden;
   transform-style: preserve-3d;
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .service-card::before {
@@ -748,6 +753,7 @@
   position: relative;
   z-index: 2;
   transition: all 0.4s ease;
+  line-height: 1.3;
 }
 
 .service-card:hover h3 {
@@ -764,6 +770,7 @@
   position: relative;
   z-index: 2;
   transition: all 0.4s ease;
+  font-weight: 400;
 }
 
 .service-card:hover p {
@@ -860,12 +867,19 @@
   }
 }
 
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .info-cards {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 
 /* Location & Store Hours Cards */
 .location-hours-container {
@@ -891,6 +905,7 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .location-hours-card::before {
@@ -1028,6 +1043,7 @@
   opacity: 0;
   transform: translateY(50px) scale(0.9);
   filter: blur(5px);
+  cursor: pointer;
 }
 
 .why-choose-card.fade-in-up {
@@ -1354,6 +1370,7 @@
   overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .feature-card-large::before {
@@ -1754,6 +1771,21 @@
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background: rgba(220, 38, 38, 0.05);
+  transform: translateX(5px) translateY(-3px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
+}
+
+.contact-item:hover .contact-details h4 {
+  color: #EF4444;
+  transform: translateX(3px);
 }
 
 .contact-icon {
@@ -1762,6 +1794,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .contact-icon img {
@@ -1774,6 +1811,8 @@
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #DC2626;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .contact-details a,
@@ -1828,8 +1867,9 @@
 
 .social-link:hover {
   background: rgba(220, 38, 38, 0.15);
-  transform: translateX(5px);
+  transform: translateX(5px) translateY(-3px);
   border-color: #DC2626;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.2);
 }
 
 .social-icon {
@@ -2172,6 +2212,37 @@
   }
 }
 
+/* Ensure all images are responsive */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal overflow */
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6, span, a, li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Enhanced readability */
+p {
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
@@ -2193,6 +2264,7 @@
   /* Will be overridden by iPad-specific rule for 768px-1024px */
   .brands-columns-container {
     grid-template-columns: repeat(4, 1fr);
+    height: 400px;
   }
 
   .location-hours-container {
@@ -2220,12 +2292,431 @@
   }
 }
 
-/* iPad specific - 4 columns for tablets */
+/* iPad specific - Enhanced styling for tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .brands-columns-container {
+  /* Typography improvements */
+  .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Hero section improvements */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 3rem;
+  }
+
+  .title-main {
+    font-size: 3rem !important;
+    letter-spacing: 3px;
+    margin-bottom: 0.8rem;
+  }
+
+  .title-sub {
+    font-size: 1.1rem !important;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-item {
+    padding: 1.2rem 1rem;
+    border-radius: 18px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.05rem;
+    border-radius: 50px;
+  }
+
+  /* Service cards - Enhanced styling */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .service-card {
+    padding: 2.5rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+
+  .service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(220, 38, 38, 0.35);
+  }
+
+  .service-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+  }
+
+  .service-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* Location & Hours cards */
+  .location-hours-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .location-hours-card {
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    gap: 1.5rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .location-hours-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(220, 38, 38, 0.3);
+  }
+
+  .location-hours-icon {
+    font-size: 3.5rem;
+  }
+
+  .location-hours-content h4 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .location-hours-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* Why Choose Us cards */
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .why-choose-card {
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .why-choose-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .why-choose-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-choose-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .why-choose-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* Feature cards */
+  .feature-card-large {
+    grid-template-columns: 1fr;
+    padding: 3rem 2.5rem;
+    gap: 2.5rem;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .feature-card-large:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 30px 80px rgba(220, 38, 38, 0.3);
+  }
+
+  .feature-card-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .feature-card-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .feature-metrics {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    height: 280px;
+    margin-bottom: 2rem;
+  }
+
+  .metric-item {
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .metric-item:hover {
+    transform: translateX(8px);
+  }
+
+  .metric-check {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .metric-text {
+    font-size: 1rem;
+  }
+
+  .feature-cta-button {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.05rem;
+    border-radius: 12px;
+  }
+
+  .visual-grid {
+    max-width: 100%;
+    gap: 1.2rem;
+  }
+
+  .visual-item {
+    font-size: 3rem;
+    border-radius: 18px;
+    transition: all 0.4s ease;
+  }
+
+  .visual-item:hover {
+    transform: translateY(-15px) scale(1.15) rotate(-5deg);
+  }
+
+  /* Contact section */
+  .contact-section {
+    padding: 4rem 2rem;
+  }
+
+  .contact-card {
+    padding: 3rem 2.5rem;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(220, 38, 38, 0.25);
+  }
+
+  .contact-card h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .contact-item {
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: rgba(220, 38, 38, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .contact-item:hover {
+    background: rgba(220, 38, 38, 0.12);
+    transform: translateY(-5px);
+  }
+
+  .contact-icon {
+    font-size: 2.5rem;
+  }
+
+  .contact-details h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-details a,
+  .contact-details p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .maps-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .maps-link:hover {
+    transform: translateX(8px);
+    background: rgba(255, 215, 0, 0.25);
+  }
+
+  .social-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .social-link {
+    padding: 1.2rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    transform: translateX(8px) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+  }
+
+  /* Brands section */
+  .brands-columns-container {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.2rem;
+    height: 450px !important;
+    padding: 2rem 0;
+  }
+
+  .brands-column:nth-child(5) {
+    display: none;
+  }
+
+  .brand-logo-item {
+    min-height: 90px;
+    padding: 1rem 0.8rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .brand-logo-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+  }
+
+  .brand-logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* Footer improvements */
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .footer-social-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .footer-social-link:hover {
+    transform: translateX(8px);
+    color: white;
+  }
+
+  /* Section padding */
+  .services-section,
+  .why-choose-section,
+  .features-cards-section,
+  .contact-section,
+  .brands-section {
+    padding: 4rem 2.5rem;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  /* Enhanced interactive elements */
+  .service-card,
+  .why-choose-card,
+  .location-hours-card,
+  .contact-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before,
+  .why-choose-card::before,
+  .location-hours-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .service-card:hover::before,
+  .why-choose-card:hover::before,
+  .location-hours-card:hover::before {
+    left: 100%;
   }
 }
 
@@ -2233,13 +2724,36 @@
 @media (max-width: 767px) {
   .brands-columns-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    height: 400px;
-    padding: 2rem 0;
+    gap: 0.8rem;
+    height: 350px;
+    padding: 1.5rem 0;
+  }
+  
+  .brand-logo-item {
+    min-height: 60px;
+    padding: 0.5rem 0.3rem;
+  }
+  
+  .brand-logo-text {
+    font-size: 0.7rem;
   }
 }
 
 @media (max-width: 768px) {
+  /* Ensure touch targets are at least 44px */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Prevent text size adjustment on iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -2277,6 +2791,7 @@
     width: 100%;
     min-height: 50px;
     text-align: center;
+    touch-action: manipulation;
   }
 
   .nav-container {
@@ -2362,8 +2877,9 @@
 
   .cta-button {
     width: 100%;
-    padding: 0.8rem 1.8rem;
+    padding: 0.9rem 1.8rem;
     font-size: 0.95rem;
+    touch-action: manipulation;
   }
 
   .floating-card {
@@ -2395,7 +2911,11 @@
   .features-cards-section,
   .contact-section,
   .brands-section {
-    padding: 2.5rem 1.2rem;
+    padding: 3rem 1.5rem;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
   }
 
   .services-grid {
@@ -2430,6 +2950,7 @@
     padding: 1.5rem;
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
   }
 
   .location-hours-icon {
@@ -2526,6 +3047,7 @@
     padding: 0.9rem 2rem;
     font-size: 0.95rem;
     width: 100%;
+    touch-action: manipulation;
   }
 
   .visual-grid {
@@ -2559,6 +3081,14 @@
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(220, 38, 38, 0.05);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-item a {
+    word-break: break-all;
   }
 
   .contact-icon {
@@ -2572,16 +3102,23 @@
   .contact-details a,
   .contact-details p {
     font-size: 0.95rem;
+    word-break: break-word;
+  }
+  
+  .contact-details a {
+    display: inline-block;
+    margin-top: 0.3rem;
   }
 
   .social-links {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .social-link {
-    padding: 0.9rem;
+    padding: 1rem;
     font-size: 0.95rem;
+    min-height: 48px;
   }
 
   .footer {
@@ -2589,8 +3126,8 @@
   }
 
   .footer-content {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     text-align: left;
     margin-bottom: 0.75rem;
   }
@@ -2655,7 +3192,7 @@
   }
 
   .container {
-    padding: 0 0.8rem;
+    padding: 0 1.2rem;
   }
 }
 
@@ -2869,19 +3406,20 @@
 
   .brands-columns-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    height: 240px;
-    padding: 1.5rem 0;
+    gap: 0.5rem;
+    height: 260px;
+    padding: 1rem 0;
   }
 
   .brand-logo-item {
-    min-height: 70px;
-    padding: 0.6rem 0.4rem;
+    min-height: 60px;
+    padding: 0.4rem 0.3rem;
   }
 
   .brand-logo-text {
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
   }
 
   .feature-card-large {
@@ -2961,14 +3499,21 @@
   }
 
   .maps-link {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.8rem;
-    margin-top: 0.4rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
   }
 
   .social-link {
-    padding: 0.7rem;
-    font-size: 0.85rem;
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+    touch-action: manipulation;
   }
 
   .footer {
@@ -2976,8 +3521,8 @@
   }
 
   .footer-content {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.6rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     margin-bottom: 0.75rem;
   }
 
@@ -3060,8 +3605,12 @@
 
   .back-link {
     font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.8rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
   }
 
   .contact-info-box {
@@ -3081,7 +3630,7 @@
   }
 
   .container {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
 
   /* Reduce all section padding on mobile */
@@ -3090,53 +3639,79 @@
   .features-cards-section,
   .contact-section,
   .brands-section {
-    padding: 1.5rem 0.5rem;
+    padding: 2rem 1rem;
   }
 
   /* Prevent horizontal overflow */
-  img, svg, video {
+  * {
     max-width: 100%;
-    height: auto;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-card-large {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-card {
+    max-width: 100%;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .hero-content,
-  .services-grid,
-  .feature-card-large,
-  .contact-card,
-  .footer-content {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    max-width: 100%;
-    overflow-x: hidden;
+  .footer-section {
+    text-align: center;
   }
 
   .footer-section h3 {
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-section h4 {
-    font-size: 0.75rem;
-    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-section p,
   .footer-section a {
-    font-size: 0.7rem;
-    line-height: 1.3;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.2rem 0;
+    touch-action: manipulation;
   }
 
   .footer-section ul li {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-social-links {
+    align-items: center;
   }
 
   .footer-social-link {
-    font-size: 0.7rem;
-    padding: 0.25rem 0;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+    justify-content: center;
+    min-height: 44px;
+    touch-action: manipulation;
   }
 
-  .footer-social-link span:first-child {
-    font-size: 0.9rem;
+  .footer-bottom {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 0.85rem;
   }
 
   .scroll-indicator {
@@ -3188,23 +3763,31 @@
   }
 
   .footer-content {
-    gap: 0.4rem;
+    gap: 1.2rem;
+  }
+
+  .footer-section {
+    text-align: center;
   }
 
   .footer-section h3 {
-    font-size: 0.85rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-section h4 {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-section p,
   .footer-section a {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .footer-social-link {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
+    justify-content: center;
   }
 }
